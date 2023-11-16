@@ -28,6 +28,21 @@ class Paciente{
      return ("Nombre: " + this.nombre +" Apellido: "+ this.apellidos +" CI: " +this.ci + " Municipio: " + this.municipio +" Numero de cama: " + this.nc + " Sala: " + this.sala + " Edad: " + this. edad);   
     }
     
+        total(a:Paciente[]):string{
+        let contmasc:number=0;
+        let contfem:number=0;
+
+        for(let i=0; i< a.length; i++){
+            if(a[i].sexo){
+                contmasc++;
+            }
+            if(!a[i].sexo){
+                contfem++;
+            }
+        }
+
+        return "La cantidad de mujeres es: " + contfem + " La cantidad de hombres: " + contmasc;
+    }
 
 }
 
@@ -47,7 +62,7 @@ let p9: Paciente = new Paciente("Reinier","elegiga","0210068265","Palma Soriano"
 
 let p10: Paciente = new Paciente("Luis","elegiga","0210068265","Palma Soriano",true,4,1,22);
 let p11: Paciente = new Paciente("Andres","elegiga","0210068265","Palma Soriano",true,4,1,22);
-let p12: Paciente = new Paciente("Salvador","elegiga","0210068265","Palma Soriano",false,4,1,22);
+let p12: Paciente = new Paciente("Salvador","elegiga","0210068265","Palma Soriano",true,4,1,22);
 
 pacientes.push(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
 
@@ -89,3 +104,4 @@ console.log("-----")
 console.log("Sala #4: "+sala4)
 console.log("-----")
 
+console.log(pacientes[0].total(pacientes));
