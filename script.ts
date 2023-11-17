@@ -66,37 +66,62 @@ class Paciente{
     
     revisar(x:string, a:Paciente[]):void{
         let y:boolean=false;
-        for(let i=0; i<a.length;i++){
-            if(x==a[i].ci){
-                y= true;
-                break;
-            }
-            else (y= false);
-        }
+        // for(let i=0; i<a.length;i++){
+        //     if(x==a[i].ci){
+        //         y= true;
+        //         break;
+        //     }
+        //     else (y= false);
+        // }
+        // if(y==true) console.log("Si es un paciente de nuestro hospital");
+        // else console.log("No esta en nuestras instalaciones")
+       y = a.some(valor => valor.ci== x);
+
         if(y==true) console.log("Si es un paciente de nuestro hospital");
         else console.log("No esta en nuestras instalaciones")
-        
     }
 
+    masmunicipios(a:Paciente[]):string{
+        let c:number=0;
+        let p:number=0;
+        let m:number=0;
+        let b:number=0;
+        let s:number=0;
+        for(let i=0; i<a.length; i++){
+            if(a[i].municipio==="Palma Soriano"){p++}
+            if(a[i].municipio==="Contramaestre"){c++}
+            if(a[i].municipio==="Moa"){m++}
+            if(a[i].municipio==="Santiago"){s++}
+            if(a[i].municipio==="Baracoa"){b++}
+        }
+        const max:number = Math.max(c,p,m,b,s);
+        
+        if(c==max && p==max && m==max && b==max && s==max){
+            return "Los municipios: Palma Soriano, Contramaestre, Moa, Santiago y Baracoa tienen la misma cantidad de pacientes: ${max} "
+        }
+        else return "No hay pacientes";
+    }
+
+    
 }   
 
 
 let pacientes:Paciente[]=[];
 let p1: Paciente = new Paciente("darwin","elegiga","02100682665","Palma Soriano",true,1,4,22);
-let p2: Paciente = new Paciente("ALejandro","elegiga","0210058265","Palma Soriano",true,1,4,19);
-let p3: Paciente = new Paciente("Saiz","elegiga","0210064265","Palma Soriano",false,1,4,24);
+let p2: Paciente = new Paciente("ALejandro","elegiga","0210058265","Contramaestre",true,1,4,19);
+let p3: Paciente = new Paciente("Saiz","elegiga","0210064265","Moa",false,1,4,24);
 
-let p4: Paciente = new Paciente("Ricardo","elegiga","00000000005","Palma Soriano",false,2,3,60);
-let p5: Paciente = new Paciente("Roberto","elegiga","0212068265","Palma Soriano",false,2,3,70);
-let p6: Paciente = new Paciente("Raul","elegiga","0211068265","Palma Soriano",false,2,3,14);
+let p4: Paciente = new Paciente("Ricardo","elegiga","00000000005","Santiago",false,2,3,60);
+let p5: Paciente = new Paciente("Roberto","elegiga","0212068265","Baracoa",false,2,3,70);
+let p6: Paciente = new Paciente("Raul","elegiga","0211068265","Guantanamo",false,2,3,14);
 
 let p7: Paciente = new Paciente("Fernando","elegiga","0214068265","Palma Soriano",true,3,2,19);
-let p8: Paciente = new Paciente("Zambia","elegiga","0210568265","Palma Soriano",false,3,2,20);
-let p9: Paciente = new Paciente("Reinier","elegiga","0210668265","Palma Soriano",true,3,2,21);
+let p8: Paciente = new Paciente("Zambia","elegiga","0210568265","Santiago",false,3,2,20);
+let p9: Paciente = new Paciente("Reinier","elegiga","0210668265","Baracoa",true,3,2,21);
 
-let p10: Paciente = new Paciente("Luis","elegiga","0210968265","Palma Soriano",true,4,1,40);
-let p11: Paciente = new Paciente("Andres","elegiga","0210868265","Palma Soriano",true,4,1,50);
-let p12: Paciente = new Paciente("Salvador","elegiga","0217068265","Palma Soriano",true,4,1,33);
+let p10: Paciente = new Paciente("Luis","elegiga","0210968265","Santiago",true,4,1,40);
+let p11: Paciente = new Paciente("Andres","elegiga","0210868265","Baracoa",true,4,1,50);
+let p12: Paciente = new Paciente("Salvador","elegiga","0217068265","Baracoa",true,4,1,33);
 
 pacientes.push(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
 
@@ -146,6 +171,8 @@ let x:string[]=pacientes[0].paciente_media(pacientes);
 for(let i=0; i<x.length;i++){
 console.log("La media es:" + x[i] );}
 
-let s:string="021006826d65";
-// s? = prompt("Digite la edad");
+let s:string="02100682665";
 pacientes[0].revisar(s,pacientes)
+
+pacientes[0].masmunicipios(pacientes);
+
