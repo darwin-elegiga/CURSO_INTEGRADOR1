@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(img/okimg.webp);
+    background-position: -10vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+
+}
+
+.principal{
+    position: relative;
+    right: -20%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.presentacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-family: cursive;
+}
+
+.utilidades_div{
+    position: relative;
+    top: 30px;
+    height: 40vh;
+    width: 45vw;
+    background-color: rgba(0, 255, 255, 0.359);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.177);
+}
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.opciones h3{
+    font-size: 25px;
+}
+#funcionalidad_select{
+    margin-top: 5px;
+    width: max-content;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 1px rgba(64, 63, 93, 0.603);
+
+
+}
