@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <script src="scriptvisual.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,15 +15,15 @@
         <h2>Programa de manejo de hospital</h2>   
     </div> 
     <div class="utilidades_div">
-        <div class="opciones">
+         <div class=" opciones"><!--agragar clase opciones -->
             <h3>Seleccione que desea hacer</h3>
-        <select name="funcionalidad_select" id="funcionalidad_select">
-            <option value=""></option>
-            <option value="">Ver pacientes por sala</option>
-            <option value="">Total por sexo</option>
-            <option value="">Pacientes sobre media de edad</option>
-            <option value="">Buscar paciente por CI</option>
-            <option value="">Municipios con mas pacientes</option>
+        <select  name="" id="" class="funcionalidad_select" onchange="execute()"><!--agragar clase  -->
+            <option value=""  disabled selected>Seleccione la opción</option>
+            <option value="pxs">Ver pacientes por sala</option>
+            <option value="txs">Total por sexo</option>
+            <option value="pxe">Pacientes sobre media de edad</option>
+            <option value="pxci">Buscar paciente por CI</option>
+            <option value="pxm">Municipios con mas pacientes</option>
         </select>
         </div>
 

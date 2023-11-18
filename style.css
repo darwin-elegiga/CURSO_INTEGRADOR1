@@ -51,11 +51,26 @@ body{
 .opciones h3{
     font-size: 25px;
 }
-#funcionalidad_select{
+.funcionalidad_select{
     margin-top: 5px;
     width: max-content;
     border-radius: 8px;
     box-shadow: 0px 0px 10px 1px rgba(64, 63, 93, 0.603);
+    top: 0;
+    transition: top 500ms cubic-bezier(0.176, 0.882, 0.320, 1.275);
 
 
+}
+
+.opciones-activa h3{
+    display: none;
+}
+.funcionalidad_select-activa{
+    position: relative;
+    top: 110px;
+    width: max-content;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 1px rgba(64, 63, 93, 0.603);
+    outline: none;
+    border: none;
 }
