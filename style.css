@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -47,6 +48,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .opciones h3{
     font-size: 25px;
@@ -66,8 +68,8 @@ body{
     display: none;
 }
 .funcionalidad_select-activa{
-    position: relative;
-    top: 110px;
+    position: absolute;
+    top: 35vh;
     width: max-content;
     border-radius: 8px;
     box-shadow: 0px 0px 10px 1px rgba(64, 63, 93, 0.603);
@@ -80,6 +82,7 @@ body{
 }
 .buscarCI-active{
     display: flex;
+    position: absolute;
     flex-direction: column;
     align-items: center;
 }
@@ -107,4 +110,91 @@ body{
     /* transform: scale(1.01); */
     box-shadow: 0px 0px 5px 1px rgba(64, 63, 93, 0.603);
 
+}
+
+/*ELEMENTOS DEL BACKEND AGREGADOS*/
+
+.txs{
+    display: none;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    width: max-content;
+    border-radius: 20px;
+}
+.txs h3{
+    font-size: 20px;
+    display: block;
+    width: 300px;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+.pxm{
+    background-color: #fff;
+    padding: 20px;
+    display: none;
+    text-align: center;
+    border-radius: 20px;
+}
+.pxm li{
+    list-style: none;
+    font-size: 18px;
+}
+
+.pxs{
+    width: 40vw;
+    height: 100px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.pxs ul{
+    width: max-content;
+    margin-right: 15px;
+    border: dashed 1px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.pxs li{
+    list-style: none;
+    padding: 4px;
+
+}
+.pxs h4{
+    padding: 6px;
+}
+
+.pxe{
+    width: 40vw;
+    height: 20vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: none;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.pxe ul{
+    padding: 20px;
+}
+
+.pxci{
+    background-color: #fff;
+    position: absolute;
+    top: 65%;
+    border-radius: 20px;
+
+}
+.pxci h3{
+    display: block;
+    font-size: 18px;
+    padding: 10px;
 }

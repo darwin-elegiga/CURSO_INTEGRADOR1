@@ -30,7 +30,7 @@ class Paciente{
         return ("Nombre: " + this.nombre +" Apellido: "+ this.apellidos +" CI: " +this.ci + " Municipio: " + this.municipio +" Numero de cama: " + this.nc + " Sala: " + this.sala + " Edad: " + this. edad);   
     }
     
-    total(a:Paciente[]):string{
+    total(a:Paciente[]):string[]{
         let contmasc:number=0;
         let contfem:number=0;
 
@@ -42,8 +42,8 @@ class Paciente{
                 contfem++;
             }
         }
-
-        return "La cantidad de mujeres es: " + contfem + " La cantidad de hombres: " + contmasc;
+        let x:string[]= ['La cantidad de mujeres es: '+ contmasc, 'La cantidad de mujeres es: ' + contfem]
+        return x;
     }
 
     paciente_media(a:Paciente[]):string[]{
@@ -54,7 +54,6 @@ class Paciente{
            media+= a[i].edad;
         }
         media = media/a.length;
-        console.log("La media es: " + Math.round(media));
         for(let i=0;i<a.length; i++){
             if(a[i].edad>media){
                 x.push(a[i].getpaciente());
@@ -64,12 +63,12 @@ class Paciente{
      return x;
     }
     
-    revisar(x:string, a:Paciente[]):void{
+    revisar(x:string, a:Paciente[]):string{
         let y:boolean=false;
        y = a.some(valor => valor.ci== x);
 
-        if(y==true) console.log("Si es un paciente de nuestro hospital");
-        else console.log("No esta en nuestras instalaciones")
+        if(y==true) return("Si es un paciente de nuestro hospital");
+        else return("No esta en nuestras instalaciones")
     }
 
     masmunicipios(a:Paciente[]):string[]{
@@ -112,7 +111,6 @@ class Paciente{
         if(p==max){
             y.push(x[pp]+ " con una cantidad de: " +max);
         }
-
         return y;
     }
 
@@ -121,23 +119,21 @@ class Paciente{
 
 
 let pacientes:Paciente[]=[];
-let p1: Paciente = new Paciente("darwin","elegiga","02100682665","Palma Soriano",true,1,4,22);
+let p1: Paciente = new Paciente("Darwin","elegiga","02100682665","Palma Soriano",true,1,4,22);
 let p2: Paciente = new Paciente("ALejandro","elegiga","0210058265","Contramaestre",true,1,4,19);
-let p3: Paciente = new Paciente("Saiz","elegiga","0210064265","Moa",false,1,4,24);
 
 let p4: Paciente = new Paciente("Ricardo","elegiga","00000000005","Santiago",false,2,3,60);
 let p5: Paciente = new Paciente("Roberto","elegiga","0212068265","Baracoa",false,2,3,70);
-let p6: Paciente = new Paciente("Raul","elegiga","0211068265","Guantanamo",false,2,3,14);
+
 
 let p7: Paciente = new Paciente("Fernando","elegiga","0214068265","Palma Soriano",true,3,2,19);
-let p8: Paciente = new Paciente("Zambia","elegiga","0210568265","Santiago",false,3,2,20);
-let p9: Paciente = new Paciente("Reinier","elegiga","0210668265","Baracoa",true,3,2,21);
+let p8: Paciente = new Paciente("Zambia","elegiga","0210568265","Baracoa",false,3,2,20);
+
 
 let p10: Paciente = new Paciente("Luis","elegiga","0210968265","Palma Soriano",true,4,1,40);
-let p11: Paciente = new Paciente("Andres","elegiga","0210868265","Contramaestre",true,4,1,50);
-let p12: Paciente = new Paciente("Salvador","elegiga","0217068265","Baracoa",true,4,1,33);
+let p11: Paciente = new Paciente("Andres","elegiga","0210868265","Baracoa",true,4,1,50);
 
-pacientes.push(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
+pacientes.push(p1,p2,p4,p5,p7,p8,p10,p11);
 
 
 var sala1:string[]=[];    
@@ -160,41 +156,69 @@ var sala4:string[]=[];
         }
     }
 
+
+    //inciso a)
 sala1.sort();
 sala2.sort();
 sala3.sort();
 sala4.sort();
 
+let sala_1:string[]=sala1;
+let sala_2:string[]=sala2;
+let sala_3:string[]=sala3;
+let sala_4:string[]=sala4;
+//hasta aqui
 console.log("Sala #1: " + sala1)
 console.log("-----")
+
 
 console.log("Sala #2: "+sala2)
 console.log("-----")
 
+
 console.log("Sala #3: "+sala3)
 console.log("-----")
+
 
 console.log("Sala #4: "+sala4)
 
 console.log("-----")
 console.log("-----")
 
-console.log(pacientes[0].total(pacientes));
+//inciso b)
+let incisob:string[]=pacientes[0].total(pacientes);
+
+//variables a mostrar
+let incisobm:string= incisob[0];
+let incisobf:string= incisob[1];
+console.log(incisobm);
+
+//
 console.log("-----")
 console.log("-----")
 
 
-/*mostrando media*/
+// inciso c)
 let x:string[]=pacientes[0].paciente_media(pacientes);
 for(let i=0; i<x.length;i++){
-console.log("La media es:" + x[i] );}
+console.log( x[i] );}
 console.log("-----")
 console.log("-----")
 
-let s:string="02100682665";
-pacientes[0].revisar(s,pacientes)
+//no se como pasarlo, es un arreglo
+// hasta aqui)
+
+//inciso d)
+
+// a ese le da valor en el html
+let s:string="0210068266";
+
+let incisod:string = pacientes[0].revisar(s,pacientes);
+console.log(incisod)
+
+//hasta aqui
 console.log("-----")
 console.log("-----")
-
-console.log(pacientes[0].masmunicipios(pacientes));
-
+// inciso e)
+let incisoe:string[]=pacientes[0].masmunicipios(pacientes);
+console.log(incisoe);

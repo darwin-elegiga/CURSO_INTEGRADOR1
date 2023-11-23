@@ -1,0 +1,177 @@
+
+function execute(){
+    var selector = document.querySelector(".funcionalidad_select");
+
+    const opciones = document.querySelector(".opciones");
+    const buscarCI = document.querySelector(".buscarCI");
+
+    const divtxs = document.querySelector(".txs");
+    const divpxm = document.querySelector(".pxm");
+    const divpxs = document.querySelector(".pxs");
+    const divpxe = document.querySelector(".pxe");
+    const divpxci = document.querySelector(".pxci");
+
+    const ul1 = document.querySelector(".ul_s1");
+    const ul2 = document.querySelector(".ul_s2");
+    const ul3 = document.querySelector(".ul_s3");
+    const ul4 = document.querySelector(".ul_s4");
+
+    console.log(selector.value)
+    if(selector.value!=null){
+        opciones.classList.add("opciones-activa");
+        selector.classList.add("funcionalidad_select-activa");
+
+    }; 
+
+    if(selector.value=="pxci"){
+        buscarCI.classList.toggle("buscarCI-active");
+    }; 
+    if(selector.value!="pxci"){
+        buscarCI.classList.remove("buscarCI-active");
+        // alert("fuera de pxc")
+    }; 
+
+
+
+    let t_txsf=document.createElement("H3");
+    let t_txsm=document.createElement("H3");
+    if(selector.value=="txs"){
+        
+        t_txsf.textContent = incisobm;
+        t_txsm.textContent = incisobf;
+
+        
+        divtxs.appendChild(t_txsf);
+        divtxs.appendChild(t_txsm);
+
+        divtxs.style.display= "flex";
+
+    }; 
+    if(selector.value!="txs"){
+        while(divtxs.firstChild){
+        divtxs.removeChild(divtxs.firstChild);}
+        divtxs.style.display= "none";
+
+    }; 
+
+
+    let ul_pxm=document.createElement("ul");
+    divpxm.appendChild(ul_pxm)
+
+    if(selector.value=="pxm"){
+        for(var i=0;i<incisoe.length; i++){
+            let item = document.createElement("LI");
+            item.textContent=incisoe[i];
+            ul_pxm.appendChild(item);
+        }
+        divpxm.style.display="flex"
+    }; 
+
+
+
+    if(selector.value!="pxm"){
+        while(divpxm.firstChild){
+            divpxm.removeChild(divpxm.firstChild);
+        }
+        divpxm.style.display= "none";
+
+    }
+
+
+    if(selector.value=="pxs"){
+
+        divpxs.style.display= "flex";
+
+
+        let s1 = document.createElement("h4");
+        s1.textContent= "SALA 1";
+        ul1.appendChild(s1);
+
+        let s2 = document.createElement("h4");
+        s2.textContent= "SALA 2";
+        ul2.appendChild(s2);
+
+        let s3 = document.createElement("h4");
+        s3.textContent= "SALA 3";
+        ul3.appendChild(s3);
+
+        let s4 = document.createElement("h4");
+        s4.textContent= "SALA 4";
+        ul4.appendChild(s4);
+
+        for(let i=0;i<sala1.length;i++){
+            let item = document.createElement("LI");
+            item.textContent=sala1[i]
+            ul1.append(item);
+        }
+        for(let i=0;i<sala2.length;i++){
+            let item = document.createElement("LI");
+            item.textContent=sala2[i]
+            ul2.append(item);
+        }
+        for(let i=0;i<sala3.length;i++){
+            let item = document.createElement("LI");
+            item.textContent=sala3[i]
+            ul3.append(item);
+        }
+        for(let i=0;i<sala4.length;i++){
+            let item = document.createElement("LI");
+            item.textContent=sala4[i]
+            ul4.append(item);
+        }
+    }
+
+    if(selector.value!="pxs"){
+        divpxs.style.display= "none";
+
+        while(ul1.firstChild){
+            ul1.removeChild(ul1.firstChild);
+        }
+        while(ul2.firstChild){
+            ul2.removeChild(ul2.firstChild);
+        }
+        while(ul3.firstChild){
+            ul3.removeChild(ul3.firstChild);
+        }
+        while(ul4.firstChild){
+            ul4.removeChild(ul4.firstChild);
+        }
+    }
+
+
+    let ul_pxe=document.createElement("ul");
+    divpxe.appendChild(ul_pxe);
+    if(selector.value=="pxe"){
+        divpxe.style.display = "block";
+        for(let i=0;i<x.length;i++){
+            let item=document.createElement("li");
+
+            item.textContent= x[i];
+            ul_pxe.appendChild(item)
+        }
+    }
+    if(selector.value!="pxe"){
+        while(divpxe.firstChild){
+            divpxe.removeChild(divpxe.firstChild);
+        }
+        divpxe.style.display= "none";
+    }
+   
+    if(selector.value!="pxci"){
+        while(divpxci.firstChild){
+            divpxci.removeChild(divpxci.firstChild)
+        }
+    }
+}
+function ci(){
+    let ci = document.querySelector(".input_CI").value;
+    var ok = pacientes[0].revisar(ci, pacientes);
+    let comprobar = ci;
+    const divpxci = document.querySelector(".pxci");
+    let r=document.createElement("h3");
+    r.textContent=ok;
+    divpxci.appendChild(r);
+    if(ok!=comprobar){
+        divpxci.removeChild(divpxci.firstChild)
+    }
+}
